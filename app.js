@@ -1,83 +1,106 @@
-var billAmnt =document.querySelector("#bill");
-var nxtBtn = document.querySelector("#go-nxt");
 
-var cashGivenDiv = document.querySelector(".cashGiven");
-var paidAmnt = document.querySelector("#cash");
-var checkBtn = document.querySelector("#result");
+var billAmt = document.querySelector("#bill");
+var cashGiven = document.querySelector("#cash");
 
 var errorDiv = document.querySelector(".errorMsg");
 
+var cashGivenDiv = document.querySelector(".cashGiven");
 var changeReturnDiv = document.querySelector(".changeReturn");
-var noOfNotes = document.querySelector(".noOfNotes");
 
-var avilableNotes = [2000,500,100,20,10,5,1];
+var nextBtn = document.querySelector("#goNxt");
+var checkBtn = document.querySelector("#result");
 
-//events after clicking bext button
-function nxtBtnClicked(){
-  if(Number(billAmnt.value)>0){
-    nxtBtn.style.diplay ="none" //remove nxtBtn
-    cashGivenDiv.style.diplay="block"//shown cashGivenDiv
-  }
-  else{
-    showError("Enter valid bill amount")
-  }
-}
-function showError(message){
-  errorDiv.style.diplay="block"//shown errorDiv
-  errorDiv.innerText = message;
-  changeReturnDiv.style.diplay="none"//hide the table
-}
-nxtBtn,addEventListener("click",nxtBtnClicked)
+var noOfNotes= document.querySelectorAll(".noOfNotes");
 
-//events after clicking check button
+var arrayNoteAmt = [2000, 500, 100, 20, 10, 5, 1];
 
-//if amount is entered without refresing the page
-function clearPreviousResult(){
-  for(var i=0;i<noOfNotes.length;i++){
-    noOfNotes[i].innerText="";
-  }
-}
-function checkBtnClicked(){
-  clearPreviousResult();
 
-  //error-handling
-  var totalBill = Number(billAmnt.value);
-  var totalCash = Number(paidAmnt.value);
+//events after clicking next button
+function nxtBtnClick(){
+  hideError()
+    if(Number(billAmt.value)>0){
 
-  if(totalBill>0 && totalCash>0){
-    if(!Number.isInteger(totalCash)){
-      showError("Enter valid amount in cash field")
+        nextBtn.style.display = "none";
+        cashGivenDiv.style.display = "block";
     }
-    if(totalBill > totalCash){
-      showError("cash is less than bill, enter valid amount");
+    else{
+        showError("Enter valid bill amount");
     }
-    //if everthing is good
-    notesToReturn(totalBill,totalCash)
-  }else{
-    showError("Enter valid details for bill and cash amount")
-  }
-
-}
-function notesToReturn(bill,cash){
-  var returnAmt = cash - bill;
-  if(returnAmt<1){
-    showError("No amount should be returned");
-  }
-  cashGivenDiv.style.diplay="block"
-
-  for(var i=0;i<avilableNotes.length;i++){
-    compute(returnAmt,avilableNotes[i],i)
-  }
 }
 
-function compute(moneyToReturn,noteAmt,index){
-  let mod = moneyToReturn
-  if(mod>=noteAmt){
-      mod = moneyToReturn%noteAmt;
-      moneyToReturn = moneyToReturn - mod;
-      let notes = moneyToReturn/noteAmt;
-      noOfNotes[index].innerText = notes;
-  }
-  return mod;
+function showError(text){
+    errorDiv.style.display = "block";
+    errorDiv.innerText= text;
+    changeReturnDiv.style.display = "none";
 }
-checkBtn.addEventListener("click",checkBtnClicked)
+
+nextBtn.addEventListener('click',nxtBtnClick)
+
+//events after check button
+
+//to clear previous entries
+function clearNoOfNotes(){
+    for(i=0;i<noOfNotes.length;i++){
+        noOfNotes[i].innerText="";
+    }
+}
+
+
+checkBtn.addEventListener('click', checkBtnClick )
+
+function checkBtnClick(){
+  hideError()
+  clearNoOfNotes();
+  //error handling
+  let billAmtValue= Number(billAmt.value);
+  let cashGivenValue= Number(cashGiven.value);
+
+  if(billAmtValue>0 && cashGivenValue>0){
+
+      if(!Number.isInteger(cashGivenValue)){
+          showError("Enter valid amount in cash given field");
+          return;
+      }
+      if(billAmtValue > cashGivenValue){
+          showError("Cash is less than bill, please enter right amount");
+          return;
+      }
+      //if input valid calculate no. of notes
+      notesToReturn(billAmtValue, cashGivenValue);
+  } else{
+      showError("Enter valid bill amount and cash given to continue");
+      }
+}
+
+//to calculate no. of notes
+function notesToReturn(bill, cash){
+    let returnAmt = cash-bill;
+    
+    if(returnAmt<1){
+        showError("No amount should be returned");
+        return;
+    }
+    changeReturnDiv.style.display = "block";
+
+    for(let i=0; i<arrayNoteAmt.length; i++){
+        returnAmt= compute(returnAmt, arrayNoteAmt[i], i);
+    }
+    
+}
+
+function compute(remainder, noteAmt, index){
+    let mod = remainder
+    if(mod>=noteAmt){
+        mod = remainder%noteAmt;
+        remainder = remainder - mod;
+        let notes = remainder/noteAmt;
+        noOfNotes[index].innerText = notes;
+    }
+    return mod;
+}
+
+
+
+function hideError(){
+    errorDiv.style.display = "none";
+}
