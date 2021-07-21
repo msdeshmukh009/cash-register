@@ -11,3 +11,12 @@ table {
     width: 100%;
     table-layout: fixed;
 }
+.cashGiven{
+    display: none;
+}
+.changeReturn{
+    display: none;
+}
+.errorMsg{
+    display: none;
+}

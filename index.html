@@ -8,30 +8,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Cash Register</h2>
+    <main>
+     <!-- heading    -->
+    <h1>Cash Register</h1>
     <p>Enter the bill amount and cash given by the customer and know minimum number of notes to return.</p>
-
-    <h2>bill amount</h2>
-    <input id="bill" type="number"><br>
+    <!-- inputs -->
+    <!-- bill-input -->
+    <div>
+        <div class="heading">bill amount</div>
+    <input id="bill" type="number"> 
     <button id="go-nxt">Next</button>
-
-    <h2>cash given</h2>
-    <input id="cash" type="number"><br>
+     </div> 
+    <!-- cash-input  -->
+    <div class="cashGiven">
+        <div class="heading">cash given</div>
+    <input id="cash" type="number">
     <button id="result">check</button>
-
-    <table>
-        <tbody>
-            <tr>
-            <th>No. of notes</th>
-            <td class="noOfNotes"></td>
-            <td class="noOfNotes"></td>
-            <td class="noOfNotes"></td>
-            <td class="noOfNotes"></td>
-            <td class="noOfNotes"></td>
-            <td class="noOfNotes"></td>
-            <td class="noOfNotes"></td>
-            </tr>
-            <tr>
+    </div>
+    <!-- error-handling -->
+    <div class="errorMsg"></div>
+    <!-- output-table -->
+    <div class="changeReturn">
+        <div class="heading">Return Change</div>
+        <table>
+            <tbody>
+                <tr>
+                <th>No. of notes</th>
+                <td class="noOfNotes"></td>
+                <td class="noOfNotes"></td>
+                <td class="noOfNotes"></td>
+                <td class="noOfNotes"></td>
+                <td class="noOfNotes"></td>
+                <td class="noOfNotes"></td>
+                <td class="noOfNotes"></td>
+                </tr>
+                <tr>
                 <th>Note</th>
                 <td>2000</td>
                 <td>500</td>
@@ -40,10 +51,11 @@
                 <td>10</td>
                 <td>5</td>
                 <td>1</td>
-            </tr>
-            
-        </tbody>
-    </table>
-
+                </tr> 
+            </tbody>
+        </table>
+    </div>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>
