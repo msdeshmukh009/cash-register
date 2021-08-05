@@ -25,14 +25,10 @@ main {
     background-color: var(--back-color);
 }
 
-h1{
+h1,p{
     color: black;
 }
-p {
-    font-weight: bold;
-    color: black;
-  
-}
+
 
 .heading {
     font-size: 1.3rem;
