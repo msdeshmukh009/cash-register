@@ -1,65 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cash Register</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <main>
-     <!-- heading    -->
-    <h1>Cash Register</h1>
-    <p>Enter the bill amount and cash given by the customer and know minimum number of notes to return.</p>
-    <!-- inputs -->
-    <!-- bill-input -->
-    <div>
-        <div class="heading">bill amount</div>
-    <input id="bill" type="number"> 
-    <button id="goNxt">Next</button>
-     </div> 
-    <!-- cash-input  -->
-    <div class="cashGiven">
-        <div class="heading">cash given</div>
-    <input id="cash" type="number">
-    <button id="result">check</button>
-    </div>
-    <!-- error-handling -->
-    <div class="errorMsg"></div>
-    <!-- output-table -->
-    <div class="changeReturn">
-        <div class="heading">Return Change</div>
-        <div id="output">
-            <table>
-                <tbody>
-                    <tr>
-                    <th>No. of notes</th>
-                    <td class="noOfNotes"></td>
-                    <td class="noOfNotes"></td>
-                    <td class="noOfNotes"></td>
-                    <td class="noOfNotes"></td>
-                    <td class="noOfNotes"></td>
-                    <td class="noOfNotes"></td>
-                    <td class="noOfNotes"></td>
-                    </tr>
-                    <tr>
-                    <th>Note</th>
-                    <td>2000</td>
-                    <td>500</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>1</td>
-                    </tr> 
-                </tbody>
-            </table>
+        <!-- heading    -->
+        <h1>Cash Register Manager</h1>
+        <p>Enter the bill amount and cash given by the customer and know minimum number of notes to return.</p>
+        <!-- inputs -->
+        <!-- bill-input -->
+        <div>
+            <div class="heading">bill amount</div>
+            <input id="bill" type="number">
+            <button id="goNxt">Next</button>
         </div>
-        
-    </div>
+        <!-- cash-input  -->
+        <div class="cashGiven">
+            <div class="heading">cash given</div>
+            <input id="cash" type="number">
+            <button id="result">check</button>
+        </div>
+        <!-- error-handling -->
+        <div class="errorMsg"></div>
+        <!-- output-table -->
+        <div class="changeReturn">
+            <div class="heading">Return Change</div>
+            <div id="amount-statement"></div>
+            <div id="output">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>No. of notes</th>
+                            <td class="noOfNotes"></td>
+                            <td class="noOfNotes"></td>
+                            <td class="noOfNotes"></td>
+                            <td class="noOfNotes"></td>
+                            <td class="noOfNotes"></td>
+                            <td class="noOfNotes"></td>
+                            <td class="noOfNotes"></td>
+                        </tr>
+                        <tr>
+                            <th>Note</th>
+                            <td>2000</td>
+                            <td>500</td>
+                            <td>100</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </main>
 
     <script src="app.js"></script>
 </body>
+
 </html>

@@ -1,16 +1,20 @@
-:root{
-    --dark-green : #064E3B;
-    --faint-green: #A7F3D0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+:root {
+    --back-color: #FDE49C;
+    --heading-color: #FFB740;
 }
-*{
-    font-family: 'Open Sans', sans-serif;
+
+* {
+    font-family: 'Roboto Mono', monospace;
     box-sizing: border-box;
+    
 }
-body{
+
+body {
     margin: 0;
 }
 
-main{
+main {
 
     width: 100%;
     max-width: 500px;
@@ -18,67 +22,84 @@ main{
     margin: auto;
     padding: 2rem 1rem;
     text-align: center;
-    background-color: var(--dark-green);
+    background-color: var(--back-color);
 }
-h1, p{
-    color: white;
+
+h1{
+    color: black;
 }
-.heading{
+p {
+    font-weight: bold;
+    color: black;
+    line-height: 2;
+}
+
+.heading {
     font-size: 1.3rem;
     padding: 1.5rem 1rem 0.5rem;
-    color: var(--faint-green);
+    color: var(--heading-color);
+    font-weight: bold;
 }
 
 
-input{
+input {
     width: 100%;
     padding: 1rem;
     height: 50px;
     display: block;
 }
 
-button{
+button {
     padding: 0.5rem 1rem;
     display: block;
     font-size: 1rem;
     border: none;
     margin: 1rem auto 0;
-    background-color:var(--faint-green);
-    color: var(--dark-green);
+    background-color: var(--heading-color);
+    color: var(--back-color);
     font-weight: bold;
 }
 
-.cashGiven{
+.cashGiven {
     display: none;
-}
-.changeReturn{
-    display: none;
-}
-.errorMsg{
-    padding-top: 1rem;
-    color:white;
-}
-#output{
-    margin: 1rem 0;    
 }
 
-#output table, th, td{
+.changeReturn {
+    display: none;
+}
+
+.errorMsg {
+    font-weight: bold;
+    padding-top: 1rem;
+    color: black;
+}
+
+#output {
+    margin: 1rem 0;
+}
+
+#output table,
+th,
+td {
     padding: 0.2rem;
-    color: var(--dark-green);
-    background-color:var(--faint-green);
-    border: 2px solid var(--dark-green) ;
+    color:black;
+    background-color: var(--heading-color);
+    font-weight: bolder;
+    border: var(--back-color) 2px solid;
     border-collapse: collapse;
 }
-.noOfNotes{
+
+.noOfNotes {
     background-color:white;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
-table{
+table {
     width: 100%;
     table-layout: fixed;
 }
 
-th,td{
+th,
+td {
     word-wrap: break-word;
 }
