@@ -78,7 +78,7 @@ function checkBtnClick() {
 //to calculate no. of notes
 function notesToReturn(bill, cash) {
     let returnAmt = cash - bill;
-    returnAmount.innerText="Amount to be returned: "+returnAmt;
+    returnAmount.innerText="Amount to be returned: "+parseInt(returnAmt);
     if (returnAmt < 1) {
         showError("No amount should be returned");
         return;
